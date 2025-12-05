@@ -16,6 +16,24 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+@app.route("/")
+def index():
+    return jsonify({
+        "message": "Habit Tracker API is running ✅",
+        "endpoints": {
+            "list_global_habits": "GET /api/habits",
+            "create_global_habit": "POST /api/habits",
+            "create_user": "POST /api/users",
+            "get_user": "GET /api/users/<user_id>",
+            "get_user_habits": "GET /api/users/<user_id>/habits",
+            "get_daily_habits": "GET /api/users/<user_id>/habits/daily?date=YYYY-MM-DD",
+            "mark_habit_complete": "POST /api/users/<user_id>/habits/<habit_id>/complete?date=YYYY-MM-DD",
+            "unmark_habit_complete": "DELETE /api/users/<user_id>/habits/<habit_id>/complete?date=YYYY-MM-DD",
+            "get_habit_streak": "GET /api/users/<user_id>/habits/<habit_id>/streak"
+        }
+    })
+# -----------------------------------------------------------
+
 # Helper functions
 def validate_date(date_str):
     """Validate date string in YYYY-MM-DD format"""
