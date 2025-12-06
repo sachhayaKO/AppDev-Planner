@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
 import os
-from db import db, User, Habit, UserHabit, DailyHabitCompletion
+from src.db import db, User, Habit, UserHabit, DailyHabitCompletion
 
 app = Flask(__name__)
 
@@ -323,4 +323,4 @@ def get_habit_streak(user_id, habit_id):
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
