@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
 import os
-from src.db import db, User, Habit, UserHabit, DailyHabitCompletion
+from db import db, User, Habit, UserHabit, DailyHabitCompletion
 
 app = Flask(__name__)
 
